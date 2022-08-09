@@ -1,0 +1,48 @@
+{
+  "name": "@starter/sanity",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Rafał Dąbrowski <rafal.dabrowski@pagepro.pl>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "dotenv-extended node ./scripts/makeSanityConfig.js && dotenv-extended sanity start",
+    "build": "dotenv-extended node ./scripts/makeSanityConfig.js && dotenv-extended sanity build",
+    "deploy:studio": "dotenv-extended node ./scripts/makeSanityConfig.js && dotenv-extended sanity deploy",
+    "deploy:graphql": "dotenv-extended node ./scripts/makeSanityConfig.js && dotenv-extended sanity graphql deploy --playground",
+    "deploy:all": "yarn deploy:graphql && yarn deploy:studio",
+    "deploy:graphql:force": "yarn deploy:graphql --force",
+    "deploy:all:force": "yarn deploy:graphql:force && yarn deploy:studio"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.29.8",
+    "@sanity/core": "^2.29.5",
+    "@sanity/dashboard": "^2.29.8",
+    "@sanity/default-layout": "2.29.7",
+    "@sanity/default-login": "^2.29.8",
+    "@sanity/desk-tool": "2.29.7",
+    "@sanity/vision": "^2.29.8",
+    "lodash": "^4.17.21",
+    "pluralize": "^8.0.0",
+    "polished": "^4.2.2",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "react-icons": "^4.3.1",
+    "sanity-plugin-color-list": "^2.0.2",
+    "sanity-plugin-color-picker": "^1.0.3",
+    "sanity-plugin-dashboard-widget-vercel": "^1.1.1",
+    "sanity-plugin-iframe-pane": "^1.0.16",
+    "slugify": "^1.6.5",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^2.29.8",
+    "fs": "^0.0.1-security",
+    "prompts": "^2.4.2"
+  }
+}

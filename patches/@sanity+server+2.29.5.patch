@@ -1,0 +1,52 @@
+diff --git a/node_modules/@sanity/server/lib/browser/process-update.js b/node_modules/@sanity/server/lib/browser/process-update.js
+index d2aab4b..e330772 100644
+--- a/node_modules/@sanity/server/lib/browser/process-update.js
++++ b/node_modules/@sanity/server/lib/browser/process-update.js
+@@ -144,10 +144,14 @@ module.exports = function processUpdate(hash, moduleMap) {
+     if (!renewedModules || renewedModules.length === 0) {
+       console.log('[HMR] Nothing hot updated.');
+     } else {
+-      console.log('[HMR] Updated modules:');
+-      renewedModules.forEach(moduleId => {
+-        console.log("[HMR]  - ".concat(normalizeModulePath(moduleMap[moduleId] || moduleId).path));
+-      });
++      if (process.env.SANITY_HMR_PRINT_UPDATED_MODULES !== 'false') {
++        console.log('[HMR] Updated modules:');
++        renewedModules.forEach(moduleId => {
++          console.log("[HMR]  - ".concat(normalizeModulePath(moduleMap[moduleId] || moduleId).path));
++        });
++      } else {
++        console.log('[HMR] Modules updated.');
++      }
+     }
+ 
+     if (isUpToDate()) {
+diff --git a/node_modules/@sanity/server/lib/configs/webpack.config.js b/node_modules/@sanity/server/lib/configs/webpack.config.js
+index 942fcaa..a742e49 100644
+--- a/node_modules/@sanity/server/lib/configs/webpack.config.js
++++ b/node_modules/@sanity/server/lib/configs/webpack.config.js
+@@ -86,7 +86,8 @@ var _default = function _default() {
+     name: 'vendor',
+     filename: 'js/vendor.bundle.js'
+   });
+-  return {
++
++  const finalConfig = {
+     entry: {
+       app: [_path.default.join(__dirname, '..', 'browser', isProd ? 'entry.js' : 'entry-dev.js')].filter(Boolean),
+       vendor: ['react', 'react-dom']
+@@ -162,6 +163,14 @@ var _default = function _default() {
+     profile: config.profile || false,
+     plugins: [_v.default.getEnvPlugin(wpIntegrationOptions), new _webpack.default.ContextReplacementPlugin(/moment[/\\]locale$/, /en|nb/), _v.default.getPartResolverPlugin(wpIntegrationOptions), cssExtractor, commonChunkPlugin].filter(Boolean)
+   };
++
++  const customConfigPath = _path.default.resolve(process.cwd(), './studio.webpack.config.js');
++
++  if (_fs.default.existsSync(customConfigPath)) {
++    return require(customConfigPath)(finalConfig);
++  }
++
++  return finalConfig;
+ };
+ 
+ exports.default = _default;

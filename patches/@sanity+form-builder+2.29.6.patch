@@ -1,0 +1,17 @@
+diff --git a/node_modules/@sanity/form-builder/lib/inputs/ObjectInput/ObjectInput.js b/node_modules/@sanity/form-builder/lib/inputs/ObjectInput/ObjectInput.js
+index 26bafbe..1ccb2a8 100644
+--- a/node_modules/@sanity/form-builder/lib/inputs/ObjectInput/ObjectInput.js
++++ b/node_modules/@sanity/form-builder/lib/inputs/ObjectInput/ObjectInput.js
+@@ -136,11 +136,7 @@ var ObjectInput = /*#__PURE__*/(0, _react.memo)( /*#__PURE__*/(0, _react.forward
+       return [];
+     }
+ 
+-    var groups = [{
+-      name: DEFAULT_FIELD_GROUP_NAME,
+-      title: 'All fields',
+-      fields: type.fields
+-    }, ...(type.groups || [])].map(group => {
++    var groups = [...(type.groups || [])].map(group => {
+       var hidden = group.hidden,
+           rest = _objectWithoutProperties(group, _excluded);
+ 

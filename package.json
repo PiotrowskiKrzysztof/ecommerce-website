@@ -1,0 +1,48 @@
+{
+  "name": "@starter/workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*"
+    ]
+  },
+  "scripts": {
+    "app:sanity": "yarn workspace @starter/sanity",
+    "app:site": "yarn workspace @starter/site",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "chalk": "4.1.2",
+    "dotenv-extended": "^2.9.0",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-next": "12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "fs-extra": "^10.0.1",
+    "lint-staged": "^10.5.4",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
+    "prettier": "^2.6.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint"
+    ]
+  },
+  "resolutions": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.3",
+    "styled-components": "^5.3.5"
+  }
+}
