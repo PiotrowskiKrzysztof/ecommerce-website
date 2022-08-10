@@ -1,0 +1,31 @@
+# Directories
+node_modules
+.husky/*
+.next
+.cache
+dist
+out
+storybook-static
+
+# Files
+.DS_Store
+*.jpg
+*.log
+*.png
+*.ico
+*.svg
+*.txt
+.env
+.env.example
+.gitkeep
+.gitignore
+.prettierignore
+.prettierc.js
+.flowconfig
+sanity.json
+yarn.lock
+dockerfile
+
+patches/
+
+schema.json

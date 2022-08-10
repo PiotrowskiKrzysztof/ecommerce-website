@@ -13,5 +13,7 @@ export default {
   SlashIcom: "#D8D8D8",
   GrayScale: "#2D2D2DA6",
   LightGrey2: "#F8F8F8",
-  Grey2: "#8E8E8E"
+  Grey2: "#8E8E8E",
+  DarkBlue: "#131921",
+  Yellow: "#FCD200"
 };
