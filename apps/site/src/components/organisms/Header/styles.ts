@@ -12,6 +12,7 @@ export const Wrapper = styled.header`
   z-index: 2;
   padding: 2.625rem 0;
   background-color: ${({ theme }) => theme.colors.DarkBlue};
+  color: ${({ theme }) => theme.colors.White};
 `;
 
 export const ListItem = styled.li<StyledHeaderProps>`

@@ -46,17 +46,15 @@ export default {
       validation: (Rule) => Rule.required().error("Slug is required!")
     },
     {
-      name: "brandList",
-      title: "Brand List",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "brand" }] }],
+      name: "productBrand",
+      title: "Brand",
+      type: "reference",
+      to: [{ type: "brand" }],
       validation: (Rule) =>
-        Rule.required()
-          .length(1)
-          .error("You have to add only 1 brand!")
+        Rule.required().error("Brand is required!")
     },
     {
-      name: "categoriesList",
+      name: "productCategories",
       title: "List of Categories",
       type: "array",
       of: [{ type: "reference", to: [{ type: "category" }] }],

@@ -6,7 +6,13 @@ export default {
     {
       title: "Name",
       name: "name",
-      type: "string"
+      type: "string",
+      validation: (Rule) => Rule.required().error("Name is required!")
+    },
+    {
+      title: "Image",
+      name: "image",
+      type: "image"
     }
   ]
 };

@@ -6,6 +6,8 @@ import blockContent from "./blockContent";
 import blockContentLink from "./blockContentLink";
 import category from "./category";
 import brand from "./brand";
+import mainCategory from "./mainCategory";
+import page from "./page";
 
 export default createSchema({
   name: "default",
@@ -14,6 +16,8 @@ export default createSchema({
     blockContentLink,
     blockContent,
     category,
-    brand
+    mainCategory,
+    brand,
+    page
   ])
 });
