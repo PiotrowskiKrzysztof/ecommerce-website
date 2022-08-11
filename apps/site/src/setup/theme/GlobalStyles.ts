@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${({ theme }) => theme.fonts.body};
         font-size: 16px;
         font-weight: ${({ theme }) => theme.fontWeights.regular};
-        color: ${({ theme }) => theme.colors.DarkGrey};
+        color: ${({ theme }) => theme.colors.DarkBlue};
         overflow-x: hidden;
         width: 100%;
     }

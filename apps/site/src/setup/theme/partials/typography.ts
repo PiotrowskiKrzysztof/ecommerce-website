@@ -1,5 +1,5 @@
 export const fontFamilies = {
-  header: "Prata",
+  header: "Lato",
   body: "Helvetica"
 };
 

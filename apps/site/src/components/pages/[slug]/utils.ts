@@ -49,7 +49,8 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-      title: page.title || ""
+      title: page.title || "",
+      sections: page.sections
     }
   };
 };

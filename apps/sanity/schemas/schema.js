@@ -8,6 +8,7 @@ import category from "./category";
 import brand from "./brand";
 import mainCategory from "./mainCategory";
 import page from "./page";
+import categorySection from "./categorySection";
 
 export default createSchema({
   name: "default",
@@ -18,6 +19,7 @@ export default createSchema({
     category,
     mainCategory,
     brand,
-    page
+    page,
+    categorySection
   ])
 });

@@ -17,6 +17,31 @@ export const SINGLE_PAGE_QUERY = gql`
       slug {
         current
       }
+      sections {
+        __typename
+        ... on CategorySection {
+          key: _key
+          title
+          categoriesList {
+            key: _id
+            name
+            image {
+              asset {
+                url
+              }
+            }
+            subCategories {
+              key: _id
+              name
+              image {
+                asset {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
