@@ -18,8 +18,12 @@ export default {
           to: [{ type: "mainCategory" }]
         }
       ],
-      validation: (Rule) =>
-        Rule.required().error("Category is required!")
+      validation: (Rule) => [
+        Rule.required().error("Category is required!"),
+        Rule.required()
+          .max(3)
+          .error("You can add maximum 3 categories!")
+      ]
     }
   ]
 };

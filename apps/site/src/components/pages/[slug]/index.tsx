@@ -7,7 +7,6 @@ import { Props } from "./types";
 const Page: NextPage<Props> = ({ title, sections }) => {
   return (
     <div>
-      <h1>{title}</h1>
       <Sections sections={sections} />
     </div>
   );

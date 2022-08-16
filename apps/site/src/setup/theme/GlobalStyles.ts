@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         font-weight: ${({ theme }) => theme.fontWeights.regular};
         color: ${({ theme }) => theme.colors.DarkBlue};
+        background-color: ${({ theme }) => theme.colors.LightGrey};
         overflow-x: hidden;
         width: 100%;
     }

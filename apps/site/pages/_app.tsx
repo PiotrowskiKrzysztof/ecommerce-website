@@ -8,7 +8,7 @@ import MainLayout from "@components/layout/MainLayout";
 const App = ({ Component, pageProps }: AppProps) => (
   <ThemeProvider {...{ theme }}>
     <Head>
-      <link href="http://fonts.googleapis.com/css?family=Lato:400,700" />
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Prata&display=swap" />
     </Head>
     <GlobalStyles />
     <MainLayout>
