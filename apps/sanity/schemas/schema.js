@@ -9,6 +9,8 @@ import brand from "./brand";
 import mainCategory from "./mainCategory";
 import page from "./page";
 import categorySection from "./categorySection";
+import heroProductSection from "./heroProductSection";
+import link from "./link";
 
 export default createSchema({
   name: "default",
@@ -20,6 +22,8 @@ export default createSchema({
     mainCategory,
     brand,
     page,
-    categorySection
+    categorySection,
+    heroProductSection,
+    link
   ])
 });

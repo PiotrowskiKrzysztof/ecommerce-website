@@ -41,6 +41,39 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
         }
+        __typename
+        ... on HeroProductSection {
+          key: _key
+          titleRaw
+          descriptionRaw
+          leftProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+          }
+          centerProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+          }
+          rightProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+          }
+        }
       }
     }
   }

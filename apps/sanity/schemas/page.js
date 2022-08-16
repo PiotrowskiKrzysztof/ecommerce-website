@@ -30,7 +30,10 @@ export default {
       title: "Sections",
       name: "sections",
       type: "array",
-      of: [{ type: "categorySection" }]
+      of: [
+        { type: "categorySection" },
+        { type: "heroProductSection" }
+      ]
     }
   ]
 };

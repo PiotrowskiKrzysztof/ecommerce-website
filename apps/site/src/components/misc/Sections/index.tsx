@@ -1,10 +1,8 @@
 import CategorySection from "@components/organisms/CategorySection";
-import { GetPageQuery_allPage } from "@components/pages/[slug]/operationTypes/GetPageQuery";
+import HeroProductSection from "@components/organisms/HeroProductSection";
 import React from "react";
 
-interface Props {
-  sections: GetPageQuery_allPage["sections"];
-}
+import { Props } from "./types";
 
 const Sections: React.FC<Props> = ({ sections }) => {
   return (
@@ -13,6 +11,9 @@ const Sections: React.FC<Props> = ({ sections }) => {
         switch (section?.__typename) {
           case "CategorySection": {
             return <CategorySection {...section} />;
+          }
+          case "HeroProductSection": {
+            return <HeroProductSection {...section} />;
           }
           default:
             return null;

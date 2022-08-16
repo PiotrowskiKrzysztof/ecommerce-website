@@ -12,7 +12,6 @@ export const innerStyles = {
   wide: {
     maxWidth: "1440px",
     margin: "0 auto",
-    width: "100%",
-    padding: "5%"
+    width: "100%"
   }
 };
