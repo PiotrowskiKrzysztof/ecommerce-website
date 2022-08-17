@@ -47,6 +47,9 @@ export const SINGLE_PAGE_QUERY = gql`
           titleRaw
           descriptionRaw
           leftProduct {
+            slug {
+              current
+            }
             name
             price
             image {
@@ -56,6 +59,9 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
           centerProduct {
+            slug {
+              current
+            }
             name
             price
             image {
@@ -65,6 +71,9 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
           rightProduct {
+            slug {
+              current
+            }
             name
             price
             image {

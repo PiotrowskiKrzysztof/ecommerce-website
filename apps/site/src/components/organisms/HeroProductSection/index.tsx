@@ -37,9 +37,92 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
       </Styled.MainProductContainer>
       <Styled.SubProductsContainer>
         <Inner variant="default">
-          {leftProduct?.name}
-          {centerProduct?.name}
-          {rightProduct?.name}
+          <StyledGridBox
+            gridTemplateColumns="repeat(3, 1fr)"
+            gridColumnGap="1rem"
+          >
+            <Styled.SubProduct justifyContent="space-between">
+              <StyledBox
+                flexDirection="column"
+                justifyContent="space-between"
+              >
+                <Typography variant="h6">
+                  {leftProduct?.name}
+                </Typography>
+                <Typography fontSize="fontSize14">
+                  {leftProduct?.price}$
+                </Typography>
+                <Link href="/" passHref>
+                  <Styled.SubLinkContent>
+                    Shop now
+                  </Styled.SubLinkContent>
+                </Link>
+              </StyledBox>
+              {leftProduct?.image?.asset?.url && (
+                <div>
+                  <Image
+                    src={leftProduct?.image?.asset?.url}
+                    width={100}
+                    height={100}
+                  ></Image>
+                </div>
+              )}
+            </Styled.SubProduct>
+            <Styled.SubProduct justifyContent="space-between">
+              <StyledBox
+                flexDirection="column"
+                justifyContent="space-between"
+              >
+                <Typography variant="h6">
+                  {centerProduct?.name}
+                </Typography>
+                <Typography fontSize="fontSize14">
+                  {centerProduct?.price}$
+                </Typography>
+                <Link href="/" passHref>
+                  <Styled.SubLinkContent>
+                    Shop now
+                  </Styled.SubLinkContent>
+                </Link>
+              </StyledBox>
+              {centerProduct?.image?.asset?.url && (
+                <div>
+                  <Image
+                    src={centerProduct?.image?.asset?.url}
+                    width={100}
+                    height={100}
+                  ></Image>
+                </div>
+              )}
+            </Styled.SubProduct>
+            <Styled.SubProduct justifyContent="space-between">
+              <StyledBox
+                flexDirection="column"
+                justifyContent="space-between"
+              >
+                <Typography variant="h6">
+                  {rightProduct?.name}
+                </Typography>
+                <Typography fontSize="fontSize14">
+                  {rightProduct?.price}$
+                </Typography>
+                <Link href="/" passHref>
+                  <Styled.SubLinkContent>
+                    Shop now
+                  </Styled.SubLinkContent>
+                </Link>
+              </StyledBox>
+              {rightProduct?.image?.asset?.url && (
+                <div>
+                  <Image
+                    src={rightProduct?.image?.asset?.url}
+                    width={100}
+                    height={100}
+                  ></Image>
+                </div>
+              )}
+            </Styled.SubProduct>
+          </StyledGridBox>
         </Inner>
       </Styled.SubProductsContainer>
     </Inner>
