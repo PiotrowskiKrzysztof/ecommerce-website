@@ -32,7 +32,8 @@ export default {
       type: "array",
       of: [
         { type: "categorySection" },
-        { type: "heroProductSection" }
+        { type: "heroProductSection" },
+        { type: "itemsSection" }
       ]
     }
   ]

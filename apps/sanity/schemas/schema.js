@@ -1,6 +1,7 @@
 import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
+import ItemsSection from "./ItemsSection";
 import product from "./product";
 import blockContent from "./blockContent";
 import blockContentLink from "./blockContentLink";
@@ -24,6 +25,7 @@ export default createSchema({
     page,
     categorySection,
     heroProductSection,
-    link
+    link,
+    ItemsSection
   ])
 });

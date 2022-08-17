@@ -68,8 +68,8 @@ export default {
       ]
     },
     {
-      name: "raiting",
-      title: "Raiting",
+      name: "rating",
+      title: "Rating",
       type: "number"
     },
     {

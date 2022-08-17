@@ -83,6 +83,50 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
         }
+        __typename
+        ... on ItemsSection {
+          key: _key
+          titleRaw
+          leftProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+            slug {
+              current
+            }
+            rating
+          }
+          centerProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+            slug {
+              current
+            }
+            rating
+          }
+          rightProduct {
+            name
+            price
+            image {
+              asset {
+                url
+              }
+            }
+            slug {
+              current
+            }
+            rating
+          }
+        }
       }
     }
   }

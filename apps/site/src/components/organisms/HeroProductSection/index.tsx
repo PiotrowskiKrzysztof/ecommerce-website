@@ -15,7 +15,6 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
   centerProduct,
   rightProduct
 }) => {
-  console.log("HeroProductSection");
   return (
     <Inner variant="wide">
       <Styled.MainProductContainer>

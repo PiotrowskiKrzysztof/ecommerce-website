@@ -1,5 +1,6 @@
 import CategorySection from "@components/organisms/CategorySection";
 import HeroProductSection from "@components/organisms/HeroProductSection";
+import ItemsSection from "@components/organisms/ItemsSection";
 import React from "react";
 
 import { Props } from "./types";
@@ -14,6 +15,9 @@ const Sections: React.FC<Props> = ({ sections }) => {
           }
           case "HeroProductSection": {
             return <HeroProductSection {...section} />;
+          }
+          case "ItemsSection": {
+            return <ItemsSection {...section} />;
           }
           default:
             return null;

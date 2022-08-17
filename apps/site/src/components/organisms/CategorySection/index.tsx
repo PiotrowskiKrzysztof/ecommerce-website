@@ -13,7 +13,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   return (
     <Styled.Container>
       <Inner variant="default">
-        <Styled.Title variant="h6">{title}</Styled.Title>
+        <Styled.Title variant="h3">{title}</Styled.Title>
         <StyledGridBox
           gridTemplateColumns="repeat(3, 1fr)"
           gridColumnGap="1rem"
