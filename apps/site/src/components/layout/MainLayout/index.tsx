@@ -7,13 +7,11 @@ import { navigation } from "./consts";
 const MainLayout: React.FC<PropsWithChildren<unknown>> = ({
   children
 }) => {
-    const { asPath, pathname } = useRouter();
+  const { asPath, pathname } = useRouter();
   if (pathname !== "/404") {
     return (
       <>
-        <Header
-          items={navigation}
-        />
+        <Header items={navigation} />
         {children}
       </>
     );

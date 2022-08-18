@@ -20,7 +20,8 @@ export const ItemsSection: React.FC<ItemsSectionProps> = ({
       <StyledGridBox
         gridTemplateColumns="repeat(3, 1fr)"
         gridColumnGap="1rem"
-        py="5rem"
+        pt="2rem"
+        pb="5rem"
       >
         <Link href="/">
           <Styled.ProductContainer flexDirection="column">
