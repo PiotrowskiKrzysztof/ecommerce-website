@@ -1,18 +1,20 @@
+import CategoriesList from "@components/organisms/CategoriesList";
 import ProductList from "@components/organisms/ProductList";
 import { Inner } from "@components/styles/Inners";
 import { NextPage } from "next";
-import { GetAllProducts } from "./operationTypes/GetAllProducts";
 
 import * as Styled from "./styles";
+import { ShopPageProps } from "./types";
 
-const ShopPage: NextPage<GetAllProducts> = ({ allProduct }) => {
+const ShopPage: NextPage<ShopPageProps> = ({
+  allProduct,
+  allMainCategory
+}) => {
   return (
     <Inner variant="default">
       <Styled.Container gridTemplateColumns="1fr 3fr">
-        <div>
-          <p>categories</p>
-        </div>
-        <ProductList allProduct={allProduct} />
+        <CategoriesList {...{ allMainCategory }} />
+        <ProductList {...{ allProduct }} />
       </Styled.Container>
     </Inner>
   );

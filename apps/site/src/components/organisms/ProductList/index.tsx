@@ -14,7 +14,7 @@ const ProductList: React.FC<GetAllProducts> = ({ allProduct }) => {
       gridColumnGap="1rem"
     >
       {allProduct.map((product) => (
-        <Link href="/">
+        <Link key={product?.key} href="/">
           <Styled.Product flexDirection="column">
             {product?.image?.asset?.url && (
               <Image
