@@ -27,3 +27,10 @@ export const CategoryTitle = styled(Typography)`
     }
   }
 `;
+
+export const Heading = styled(Typography)`
+  padding-bottom: 1rem;
+  margin: 1rem 1rem;
+  border-bottom: 0.063rem solid
+    ${({ theme }) => theme.colors.DarkBlue};
+`;

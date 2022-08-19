@@ -8,6 +8,9 @@ const CategoriesList: React.FC<GetAllCategories> = ({
 }) => {
   return (
     <Styled.Container>
+      <Styled.Heading fontSize="fontSize16" fontWeights="bold">
+        Categories
+      </Styled.Heading>
       {allMainCategory.map((mainCategory) => (
         <Link href="/">
           <Styled.CategoryTitle>

@@ -11,7 +11,7 @@ const ShopPage: NextPage<ShopPageProps> = ({
   allMainCategory
 }) => {
   return (
-    <Inner variant="default">
+    <Inner variant="wide">
       <Styled.Container gridTemplateColumns="1fr 3fr">
         <CategoriesList {...{ allMainCategory }} />
         <ProductList {...{ allProduct }} />
