@@ -1,5 +1,4 @@
 import Sections from "@components/misc/Sections";
-import CategorySection from "@components/organisms/CategorySection";
 import { NextPage } from "next";
 
 import { Props } from "./types";

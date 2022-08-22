@@ -12,7 +12,7 @@ const CategoriesList: React.FC<GetAllCategories> = ({
         Categories
       </Styled.Heading>
       {allMainCategory.map((mainCategory) => (
-        <Link href="/">
+        <Link key={mainCategory?.key} href="/">
           <Styled.CategoryTitle>
             {mainCategory?.name}
           </Styled.CategoryTitle>
