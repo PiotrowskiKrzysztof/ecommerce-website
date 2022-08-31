@@ -25,16 +25,3 @@ export const SINGLE_PAGE_CATEGORY_QUERY = gql`
     }
   }
 `;
-
-export const CATEGORY_PRODUCTS_QUERY = gql`
-  query GetCategoryProductsQuery($reference: ID!) {
-    allProduct(where: { _: { references: $reference } }) {
-      id: _id
-      name
-      productCategories {
-        id: _id
-        name
-      }
-    }
-  }
-`;

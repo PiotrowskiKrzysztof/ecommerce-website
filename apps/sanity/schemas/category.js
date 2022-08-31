@@ -13,6 +13,14 @@ export default {
       title: "Image",
       name: "image",
       type: "image"
+    },
+    {
+      name: "parent",
+      title: "Parent",
+      type: "reference",
+      to: [{ type: "mainCategory" }],
+      validation: (Rule) =>
+        Rule.required().error("You have to add parent reference!")
     }
   ]
 };
