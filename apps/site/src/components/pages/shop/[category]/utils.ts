@@ -3,7 +3,6 @@ import client from "@setup/sanity";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { GetPageCategoryQuery } from "./operationTypes/GetPageCategoryQuery";
 import {
-  CATEGORY_PRODUCTS_QUERY,
   PAGE_CATEGORY_QUERY,
   SINGLE_PAGE_CATEGORY_QUERY
 } from "./queries";
