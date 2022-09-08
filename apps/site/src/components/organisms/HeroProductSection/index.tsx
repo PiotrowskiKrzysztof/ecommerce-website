@@ -4,7 +4,8 @@ import { Inner } from "@components/styles/Inners";
 import { StyledBox, StyledGridBox } from "@components/styles/styles";
 import { Typography } from "@components/styles/Typography";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import Link from "@components/atoms/Link";
 
 import * as Styled from "./styles";
 
@@ -27,10 +28,9 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
           >
             <BlockContent content={titleRaw} />
             <BlockContent content={descriptionRaw} />
-            {/* <Styled.Button type="button"></Styled.Button> */}
-            <Link href="/shop" passHref>
+            <NextLink href="/shop" passHref>
               <Styled.LinkContent>Shop now</Styled.LinkContent>
-            </Link>
+            </NextLink>
           </StyledBox>
         </Styled.MainInner>
       </Styled.MainProductContainer>
@@ -40,87 +40,91 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
             gridTemplateColumns="repeat(3, 1fr)"
             gridColumnGap="1rem"
           >
-            <Styled.SubProduct justifyContent="space-between">
-              <StyledBox
-                flexDirection="column"
-                justifyContent="space-between"
-              >
-                <Typography variant="h6">
-                  {leftProduct?.name}
-                </Typography>
-                <Typography fontSize="fontSize14">
-                  {leftProduct?.price}$
-                </Typography>
-                <Link href="/" passHref>
+            <Link href={`/shop/product/${leftProduct?.id}`}>
+              <Styled.SubProduct justifyContent="space-between">
+                <StyledBox
+                  flexDirection="column"
+                  justifyContent="space-between"
+                >
+                  <Typography variant="h6">
+                    {leftProduct?.name}
+                  </Typography>
+                  <Typography fontSize="fontSize14">
+                    {leftProduct?.price}$
+                  </Typography>
                   <Styled.SubLinkContent>
                     Shop now
                   </Styled.SubLinkContent>
-                </Link>
-              </StyledBox>
-              {leftProduct?.image?.asset?.url && (
-                <div>
-                  <Image
-                    src={leftProduct?.image?.asset?.url}
-                    width={100}
-                    height={100}
-                  ></Image>
-                </div>
-              )}
-            </Styled.SubProduct>
-            <Styled.SubProduct justifyContent="space-between">
-              <StyledBox
-                flexDirection="column"
-                justifyContent="space-between"
-              >
-                <Typography variant="h6">
-                  {centerProduct?.name}
-                </Typography>
-                <Typography fontSize="fontSize14">
-                  {centerProduct?.price}$
-                </Typography>
-                <Link href="/" passHref>
-                  <Styled.SubLinkContent>
-                    Shop now
-                  </Styled.SubLinkContent>
-                </Link>
-              </StyledBox>
-              {centerProduct?.image?.asset?.url && (
-                <div>
-                  <Image
-                    src={centerProduct?.image?.asset?.url}
-                    width={100}
-                    height={100}
-                  ></Image>
-                </div>
-              )}
-            </Styled.SubProduct>
-            <Styled.SubProduct justifyContent="space-between">
-              <StyledBox
-                flexDirection="column"
-                justifyContent="space-between"
-              >
-                <Typography variant="h6">
-                  {rightProduct?.name}
-                </Typography>
-                <Typography fontSize="fontSize14">
-                  {rightProduct?.price}$
-                </Typography>
-                <Link href="/" passHref>
-                  <Styled.SubLinkContent>
-                    Shop now
-                  </Styled.SubLinkContent>
-                </Link>
-              </StyledBox>
-              {rightProduct?.image?.asset?.url && (
-                <div>
-                  <Image
-                    src={rightProduct?.image?.asset?.url}
-                    width={100}
-                    height={100}
-                  ></Image>
-                </div>
-              )}
-            </Styled.SubProduct>
+                </StyledBox>
+                {leftProduct?.image?.asset?.url && (
+                  <div>
+                    <Image
+                      src={leftProduct?.image?.asset?.url}
+                      width={100}
+                      height={100}
+                    ></Image>
+                  </div>
+                )}
+              </Styled.SubProduct>
+            </Link>
+            <Link href={`/shop/product/${leftProduct?.id}`}>
+              <Styled.SubProduct justifyContent="space-between">
+                <StyledBox
+                  flexDirection="column"
+                  justifyContent="space-between"
+                >
+                  <Typography variant="h6">
+                    {centerProduct?.name}
+                  </Typography>
+                  <Typography fontSize="fontSize14">
+                    {centerProduct?.price}$
+                  </Typography>
+                  <Link href="/" passHref>
+                    <Styled.SubLinkContent>
+                      Shop now
+                    </Styled.SubLinkContent>
+                  </Link>
+                </StyledBox>
+                {centerProduct?.image?.asset?.url && (
+                  <div>
+                    <Image
+                      src={centerProduct?.image?.asset?.url}
+                      width={100}
+                      height={100}
+                    ></Image>
+                  </div>
+                )}
+              </Styled.SubProduct>
+            </Link>
+            <Link href={`/shop/product/${leftProduct?.id}`}>
+              <Styled.SubProduct justifyContent="space-between">
+                <StyledBox
+                  flexDirection="column"
+                  justifyContent="space-between"
+                >
+                  <Typography variant="h6">
+                    {rightProduct?.name}
+                  </Typography>
+                  <Typography fontSize="fontSize14">
+                    {rightProduct?.price}$
+                  </Typography>
+                  <Link href="/" passHref>
+                    <Styled.SubLinkContent>
+                      Shop now
+                    </Styled.SubLinkContent>
+                  </Link>
+                </StyledBox>
+                {rightProduct?.image?.asset?.url && (
+                  <div>
+                    <Image
+                      src={rightProduct?.image?.asset?.url}
+                      width={100}
+                      height={100}
+                    ></Image>
+                  </div>
+                )}
+              </Styled.SubProduct>
+            </Link>
           </StyledGridBox>
         </Inner>
       </Styled.SubProductsContainer>

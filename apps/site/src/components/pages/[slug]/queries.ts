@@ -47,6 +47,7 @@ export const SINGLE_PAGE_QUERY = gql`
           titleRaw
           descriptionRaw
           leftProduct {
+            id: _id
             slug {
               current
             }
@@ -59,6 +60,7 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
           centerProduct {
+            id: _id
             slug {
               current
             }
@@ -71,6 +73,7 @@ export const SINGLE_PAGE_QUERY = gql`
             }
           }
           rightProduct {
+            id: _id
             slug {
               current
             }
@@ -88,6 +91,7 @@ export const SINGLE_PAGE_QUERY = gql`
           key: _key
           titleRaw
           leftProduct {
+            id: _id
             name
             price
             image {
@@ -101,6 +105,7 @@ export const SINGLE_PAGE_QUERY = gql`
             rating
           }
           centerProduct {
+            id: _id
             name
             price
             image {
@@ -114,6 +119,7 @@ export const SINGLE_PAGE_QUERY = gql`
             rating
           }
           rightProduct {
+            id: _id
             name
             price
             image {

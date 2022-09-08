@@ -23,7 +23,7 @@ export const ItemsSection: React.FC<ItemsSectionProps> = ({
         pt="2rem"
         pb="5rem"
       >
-        <Link href="/">
+        <Link href={`/shop/product/${leftProduct?.id}`}>
           <Styled.ProductContainer flexDirection="column">
             {leftProduct?.image?.asset?.url && (
               <div>
@@ -44,7 +44,7 @@ export const ItemsSection: React.FC<ItemsSectionProps> = ({
             <Typography variant="h6">{leftProduct?.name}</Typography>
           </Styled.ProductContainer>
         </Link>
-        <Link href="/">
+        <Link href={`/shop/product/${centerProduct?.id}`}>
           <Styled.ProductContainer flexDirection="column">
             {centerProduct?.image?.asset?.url && (
               <div>
@@ -67,7 +67,7 @@ export const ItemsSection: React.FC<ItemsSectionProps> = ({
             </Typography>
           </Styled.ProductContainer>
         </Link>
-        <Link href="/">
+        <Link href={`/shop/product/${rightProduct?.id}`}>
           <Styled.ProductContainer flexDirection="column">
             {rightProduct?.image?.asset?.url && (
               <div>

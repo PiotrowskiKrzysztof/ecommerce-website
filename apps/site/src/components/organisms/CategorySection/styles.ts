@@ -21,8 +21,19 @@ export const CategoryName = styled(Typography)`
   margin-bottom: 2rem;
 `;
 
+export const SubCategoryName = styled(Typography)`
+  margin-top: 0.5rem;
+  transition: 0.5s;
+`;
+
 export const SubCategories = styled.div<StyledSubCategoriesProps>`
   margin-bottom: 2rem;
+  cursor: pointer;
+  &:hover {
+    ${SubCategoryName} {
+      color: ${({ theme }) => theme.colors.Yellow};
+    }
+  }
   ${({ isFirst }) =>
     isFirst &&
     css`
@@ -30,6 +41,10 @@ export const SubCategories = styled.div<StyledSubCategoriesProps>`
     `}
 `;
 
-export const SubCategoryName = styled(Typography)`
-  margin-top: 0.5rem;
+export const SeeMore = styled(Typography)`
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    color: ${({ theme }) => theme.colors.Yellow};
+  }
 `;
