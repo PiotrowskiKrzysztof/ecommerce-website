@@ -4,7 +4,6 @@ import { ProductPageProps } from "./types";
 import Product from "@components/organisms/Product";
 
 const CategoryPage: NextPage<ProductPageProps> = ({ product }) => {
-  console.log(product);
   return <Product {...{ product }} />;
 };
 
