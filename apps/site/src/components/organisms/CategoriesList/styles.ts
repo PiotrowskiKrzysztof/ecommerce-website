@@ -28,6 +28,27 @@ export const CategoryTitle = styled(Typography)`
   }
 `;
 
+export const CategorySubTitle = styled(Typography)`
+  margin-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 2rem;
+  &:before {
+    content: "";
+    width: 0.125rem;
+    height: 100%;
+    background-color: ${({ theme }) => theme.colors.White};
+    position: absolute;
+    left: 0;
+    transition: 0.5s;
+  }
+  &:hover {
+    &:before {
+      background-color: ${({ theme }) => theme.colors.Yellow};
+    }
+  }
+`;
+
 export const Heading = styled(Typography)`
   padding-bottom: 1rem;
   margin: 1rem 1rem;

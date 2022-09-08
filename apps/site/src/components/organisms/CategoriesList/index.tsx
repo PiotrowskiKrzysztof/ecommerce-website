@@ -12,14 +12,26 @@ const CategoriesList: React.FC<GetAllCategories> = ({
         Categories
       </Styled.Heading>
       {allMainCategory.map((mainCategory) => (
-        <Link
-          key={mainCategory?.key}
-          href={`/shop/${mainCategory?.name}`}
-        >
-          <Styled.CategoryTitle>
-            {mainCategory?.name}
-          </Styled.CategoryTitle>
-        </Link>
+        <>
+          <Link
+            key={mainCategory?.key}
+            href={`/shop/${mainCategory?.name}`}
+          >
+            <Styled.CategoryTitle>
+              {mainCategory?.name}
+            </Styled.CategoryTitle>
+          </Link>
+          {mainCategory?.subCategories.map((subCategory) => (
+            <Link
+              key={mainCategory?.key}
+              href={`/shop/${mainCategory?.name}/${subCategory?.key}`}
+            >
+              <Styled.CategorySubTitle>
+                {subCategory?.name}
+              </Styled.CategorySubTitle>
+            </Link>
+          ))}
+        </>
       ))}
     </Styled.Container>
   );
