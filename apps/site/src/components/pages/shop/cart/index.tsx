@@ -52,13 +52,11 @@ const Cart: React.FC = () => {
                 </Typography>
               </Styled.ItemData>
               <Styled.ItemData>
-                <Typography fontWeight="bold">
-                  <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={options}
-                  />
-                </Typography>
+                <Select
+                  defaultValue={selectedOption}
+                  onChange={setSelectedOption}
+                  options={options}
+                />
               </Styled.ItemData>
               <Styled.ItemData>
                 <Typography fontWeight="bold">$299</Typography>
