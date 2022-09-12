@@ -3,12 +3,23 @@ import BlockContent from "@components/misc/BlockContent";
 import StarRating from "@components/atoms/StarRating";
 import { StyledBox } from "@components/styles/styles";
 import Image from "next/image";
-import Link from "next/link";
+import { useCallback } from "react";
 
 import { ProductProps } from "./types";
 import * as Styled from "./styles";
 
 const Product: React.FC<ProductProps> = ({ product }) => {
+  const handleProduct = useCallback(() => {
+    localStorage.setItem(
+      product.id,
+      JSON.stringify({
+        id: product?.id,
+        name: product?.name,
+        image: product?.image?.asset?.url,
+        price: product?.price
+      })
+    );
+  }, []);
   return (
     <Inner variant="wide">
       <Styled.Container gridTemplateColumns="repeat(2, 1fr)">
@@ -21,7 +32,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <StarRating rating={product?.rating} />
             {`(${product?.rating})`}
           </StyledBox>
-          <Styled.ShopButton type="button">
+          <Styled.ShopButton type="button" onClick={handleProduct}>
             Add to cart
           </Styled.ShopButton>
         </StyledBox>

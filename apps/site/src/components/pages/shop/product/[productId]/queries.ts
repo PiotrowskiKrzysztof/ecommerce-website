@@ -11,6 +11,7 @@ export const PAGE_SINGLE_PRODUCT_QUERY = gql`
 export const SINGLE_PRODUCT_QUERY = gql`
   query GetSingleProductQuery($productId: ID!) {
     Product(id: $productId) {
+      id: _id
       name
       price
       image {

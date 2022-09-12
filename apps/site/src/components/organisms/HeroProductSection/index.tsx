@@ -79,7 +79,7 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
                   <Typography fontSize="fontSize14">
                     {centerProduct?.price}$
                   </Typography>
-                  <Link href="/" passHref>
+                  <Link href="/">
                     <Styled.SubLinkContent>
                       Shop now
                     </Styled.SubLinkContent>
@@ -108,7 +108,7 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
                   <Typography fontSize="fontSize14">
                     {rightProduct?.price}$
                   </Typography>
-                  <Link href="/" passHref>
+                  <Link href="/">
                     <Styled.SubLinkContent>
                       Shop now
                     </Styled.SubLinkContent>

@@ -17,7 +17,7 @@ export const SubProductsContainer = styled.div`
   right: 0;
 `;
 
-export const SubLinkContent = styled.p`
+export const SubLinkContent = styled.a`
   color: ${({ theme }) => theme.colors.Yellow};
   transition: 0.5s;
 `;
