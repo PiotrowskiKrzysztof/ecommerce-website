@@ -67,7 +67,7 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
                 )}
               </Styled.SubProduct>
             </Link>
-            <Link href={`/shop/product/${leftProduct?.id}`}>
+            <Link href={`/shop/product/${centerProduct?.id}`}>
               <Styled.SubProduct justifyContent="space-between">
                 <StyledBox
                   flexDirection="column"
@@ -94,7 +94,7 @@ const HeroProductSection: React.FC<HeroProducSectionProps> = ({
                 )}
               </Styled.SubProduct>
             </Link>
-            <Link href={`/shop/product/${leftProduct?.id}`}>
+            <Link href={`/shop/product/${rightProduct?.id}`}>
               <Styled.SubProduct justifyContent="space-between">
                 <StyledBox
                   flexDirection="column"

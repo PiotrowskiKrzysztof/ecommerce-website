@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from "react";
 import { useRouter } from "next/router";
 
 import { navigation } from "./consts";
+import { AppWraper } from "@components/misc/AppWraper";
 
 const MainLayout: React.FC<PropsWithChildren<unknown>> = ({
   children
@@ -10,10 +11,10 @@ const MainLayout: React.FC<PropsWithChildren<unknown>> = ({
   const { asPath, pathname } = useRouter();
   if (pathname !== "/404") {
     return (
-      <>
+      <AppWraper>
         <Header items={navigation} />
         {children}
-      </>
+      </AppWraper>
     );
   }
   // if 404

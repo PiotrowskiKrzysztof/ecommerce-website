@@ -1,16 +1,18 @@
 import { Inner } from "@components/styles/Inners";
 import { StyledBox } from "@components/styles/styles";
 import { Typography } from "@components/styles/Typography";
-import Link from "next/link";
+import NextLink from "next/link";
+import Link from "@components/atoms/Link";
 import { useRouter } from "next/router";
 import React from "react";
+import { useAppContext } from "@components/misc/AppWraper";
 
 import * as Styled from "./styles";
 import { HeaderProps } from "./types";
 
 const Header: React.FC<HeaderProps> = ({ items }) => {
   const { asPath } = useRouter();
-
+  const cartContext = useAppContext();
   return (
     <Styled.Wrapper>
       <Inner variant="wide">
@@ -21,10 +23,12 @@ const Header: React.FC<HeaderProps> = ({ items }) => {
         >
           <div>
             <Typography variant="smallText" fontWeight="bold">
-              <Link href="/">XYZon</Link>
+              <NextLink href="/" passHref>
+                XYZon
+              </NextLink>
             </Typography>
           </div>
-          <StyledBox>
+          <StyledBox alignItems="center">
             <ul>
               {items.map(({ label, href }) => {
                 const isHighlighted = asPath.startsWith(href);
@@ -32,12 +36,24 @@ const Header: React.FC<HeaderProps> = ({ items }) => {
                 return (
                   <Styled.ListItem key={label} {...{ isHighlighted }}>
                     <Typography variant="smallText">
-                      <Link {...{ href }}>{label}</Link>
+                      <NextLink {...{ href }} passHref>
+                        {label}
+                      </NextLink>
                     </Typography>
                   </Styled.ListItem>
                 );
               })}
             </ul>
+            <Link href="/shop/cart">
+              <Styled.ShoppingCartIconContainer>
+                <Styled.ShoppingCartIcon />
+                {cartContext.productCounter > 0 ? (
+                  <Styled.ProductCounter>
+                    {cartContext.productCounter}
+                  </Styled.ProductCounter>
+                ) : null}
+              </Styled.ShoppingCartIconContainer>
+            </Link>
           </StyledBox>
         </StyledBox>
       </Inner>

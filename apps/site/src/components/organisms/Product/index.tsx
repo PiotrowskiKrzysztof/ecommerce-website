@@ -4,11 +4,13 @@ import StarRating from "@components/atoms/StarRating";
 import { StyledBox } from "@components/styles/styles";
 import Image from "next/image";
 import { useCallback } from "react";
+import { useAppContext } from "@components/misc/AppWraper";
 
 import { ProductProps } from "./types";
 import * as Styled from "./styles";
 
 const Product: React.FC<ProductProps> = ({ product }) => {
+  const cartContext = useAppContext();
   const handleProduct = useCallback(() => {
     localStorage.setItem(
       product.id,
@@ -32,7 +34,13 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <StarRating rating={product?.rating} />
             {`(${product?.rating})`}
           </StyledBox>
-          <Styled.ShopButton type="button" onClick={handleProduct}>
+          <Styled.ShopButton
+            type="button"
+            onClick={() => {
+              handleProduct();
+              cartContext.counterFunction();
+            }}
+          >
             Add to cart
           </Styled.ShopButton>
         </StyledBox>

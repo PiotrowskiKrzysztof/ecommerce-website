@@ -1,3 +1,4 @@
+import { ShoppingCart } from "public/assets/svg";
 import styled from "styled-components";
 
 import { StyledHeaderProps } from "./types";
@@ -22,4 +23,25 @@ export const ListItem = styled.li<StyledHeaderProps>`
   margin-left: 2rem;
   color: ${({ theme, isHighlighted }) =>
     isHighlighted ? theme.colors.Yellow : "inherit"};
+`;
+
+export const ShoppingCartIcon = styled(ShoppingCart)`
+  fill: ${({ theme }) => theme.colors.Yellow};
+  width: 2em;
+  height: 2em;
+  margin-left: 2rem;
+`;
+
+export const ShoppingCartIconContainer = styled.div`
+  position: relative;
+`;
+
+export const ProductCounter = styled.p`
+  position: absolute;
+  top: -0.313rem;
+  right: -1.563rem;
+  padding: 0.313rem 0.625rem;
+  background-color: ${({ theme }) => theme.colors.DarkBlue};
+  border: 0.063rem solid ${({ theme }) => theme.colors.Yellow};
+  border-radius: 50%;
 `;

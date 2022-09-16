@@ -4,5 +4,14 @@ import Instagram from "./icons/IconLogoInstagram.svg";
 import Play from "./icons/IconPlay.svg";
 import ArrowShort from "./icons/IconArrowShort.svg";
 import ArrowLong from "./icons/IconArrowLong.svg";
+import ShoppingCart from "./icons/ShoppingCart.svg";
 
-export { Twitter, Youtube, Instagram, Play, ArrowShort, ArrowLong };
+export {
+  Twitter,
+  Youtube,
+  Instagram,
+  Play,
+  ArrowShort,
+  ArrowLong,
+  ShoppingCart
+};
