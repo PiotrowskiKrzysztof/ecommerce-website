@@ -18,7 +18,8 @@ const Product: React.FC<ProductProps> = ({ product }) => {
         id: product?.id,
         name: product?.name,
         image: product?.image?.asset?.url,
-        price: product?.price
+        price: product?.price,
+        qauntity: 1
       })
     );
   }, []);

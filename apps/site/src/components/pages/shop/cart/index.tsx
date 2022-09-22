@@ -2,11 +2,10 @@ import { Inner } from "@components/styles/Inners";
 import { StyledBox, StyledGridBox } from "@components/styles/styles";
 import { Typography } from "@components/styles/Typography";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import Select from "react-select";
+import React, { useState, useEffect, useCallback } from "react";
+import QuantitySelect from "@components/atoms/QauntitySelect";
 
 import * as Styled from "./styles";
-import { options } from "./consts";
 import { CartProductsProps } from "./types";
 
 const Cart: React.FC = () => {
@@ -28,10 +27,7 @@ const Cart: React.FC = () => {
     }
     setProducts(chosenProducts);
   }, []);
-  const [selectedOption, setSelectedOption] = useState({
-    value: 1,
-    label: "1"
-  });
+
   const counterItems = 25;
   const finallPrice = 926;
   return (
@@ -73,11 +69,7 @@ const Cart: React.FC = () => {
                     </Typography>
                   </Styled.ItemData>
                   <Styled.ItemData>
-                    <Select
-                      defaultValue={selectedOption}
-                      onChange={setSelectedOption}
-                      options={options}
-                    />
+                    <QuantitySelect {...product} />
                   </Styled.ItemData>
                   <Styled.ItemData>
                     <Typography fontWeight="bold">{`$${product?.price}`}</Typography>
@@ -89,35 +81,6 @@ const Cart: React.FC = () => {
                   </Styled.ItemData>
                 </Styled.ItemContainer>
               ))}
-            {/* <Styled.ItemContainer>
-              <Styled.ItemData>
-                <Image
-                  src="https://cdn.sanity.io/images/rh1p0y41/production/f0dd6a7e7ef50c51a5095552e7e931f5854d7867-186x116.jpg"
-                  width={100}
-                  height={100}
-                />
-              </Styled.ItemData>
-              <Styled.ItemData isWide={true}>
-                <Typography fontWeight="bold">
-                  Product name
-                </Typography>
-              </Styled.ItemData>
-              <Styled.ItemData>
-                <Select
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={options}
-                />
-              </Styled.ItemData>
-              <Styled.ItemData>
-                <Typography fontWeight="bold">$299</Typography>
-              </Styled.ItemData>
-              <Styled.ItemData isLast={true}>
-                <Typography fontWeight="bold">
-                  <Styled.ActionButton>X</Styled.ActionButton>
-                </Typography>
-              </Styled.ItemData>
-            </Styled.ItemContainer> */}
           </StyledBox>
           <StyledBox flexBasis="30%">
             <Styled.CartSummary>

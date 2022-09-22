@@ -9,5 +9,6 @@ export interface CartProductsProps {
     name: string;
     image: string;
     price: string;
+    quantity: number;
   };
 }
