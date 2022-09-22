@@ -4,4 +4,6 @@ export interface QuantitySelectProps {
   image: string;
   price: string;
   quantity: string;
+  setProducts: any;
+  setForceUpdate: any;
 }

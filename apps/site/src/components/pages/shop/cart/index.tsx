@@ -10,8 +10,13 @@ import { CartProductsProps } from "./types";
 
 const Cart: React.FC = () => {
   const [products, setProducts] = useState<CartProductsProps>();
+  const [finallPrice, setFinallPrice] = useState(0);
+  const [finallCoutItems, setfinallCoutItems] = useState(0);
+  const [forceUpdate, setForceUpdate] = useState(false);
   useEffect(() => {
     const chosenProducts = [];
+    let counterPrice = 0;
+    let counterItems = 0;
     const keys = Object.keys(localStorage);
     let index = keys.length;
 
@@ -23,13 +28,23 @@ const Cart: React.FC = () => {
         chosenProducts.push(
           JSON.parse(localStorage.getItem(keys[index]) || "{}")
         );
+        counterPrice +=
+          JSON.parse(localStorage.getItem(keys[index]) || "{}")
+            ?.price *
+          JSON.parse(localStorage.getItem(keys[index]) || "{}")
+            ?.quantity;
+        counterItems += JSON.parse(
+          localStorage.getItem(keys[index]) || "{}"
+        )?.quantity;
       }
     }
+    setFinallPrice(counterPrice);
+    setfinallCoutItems(counterItems);
     setProducts(chosenProducts);
-  }, []);
+  }, [forceUpdate]);
 
   const counterItems = 25;
-  const finallPrice = 926;
+  // const finallPrice = 926;
   return (
     <Styled.Container>
       <Inner variant="default">
@@ -55,7 +70,7 @@ const Cart: React.FC = () => {
             </Styled.ItemContainer>
             {products instanceof Array &&
               products?.map((product) => (
-                <Styled.ItemContainer>
+                <Styled.ItemContainer key={product?.id}>
                   <Styled.ItemData>
                     <Image
                       src={product?.image}
@@ -69,7 +84,11 @@ const Cart: React.FC = () => {
                     </Typography>
                   </Styled.ItemData>
                   <Styled.ItemData>
-                    <QuantitySelect {...product} />
+                    <QuantitySelect
+                      {...product}
+                      setProducts={setProducts}
+                      setForceUpdate={setForceUpdate}
+                    />
                   </Styled.ItemData>
                   <Styled.ItemData>
                     <Typography fontWeight="bold">{`$${product?.price}`}</Typography>
@@ -84,7 +103,7 @@ const Cart: React.FC = () => {
           </StyledBox>
           <StyledBox flexBasis="30%">
             <Styled.CartSummary>
-              <Typography variant="h5">{`Subtotal (${counterItems} items):`}</Typography>
+              <Typography variant="h5">{`Subtotal (${finallCoutItems} items):`}</Typography>
               <Typography variant="h6">{`$ ${finallPrice}`}</Typography>
               <Styled.ShopButton type="button">
                 Checkout

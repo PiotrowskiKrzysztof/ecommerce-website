@@ -8,7 +8,9 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({
   quantity,
   name,
   image,
-  price
+  price,
+  setProducts,
+  setForceUpdate
 }) => {
   const [selectedOption, setSelectedOption] = useState({
     value: Number(quantity),
@@ -22,17 +24,31 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({
         name: name,
         image: image,
         price: price,
-        quantity: Number(selectedOption?.label)
+        quantity: selectedOption?.value
       })
     );
   }, [selectedOption]);
 
-  console.log(selectedOption);
+  const quantityHandler = useCallback((event) => {
+    setSelectedOption({
+      value: Number(event.value),
+      label: String(event.value)
+    });
+    setProducts((prevState) => {
+      const newState = prevState.map((obj) => {
+        if (obj.id === id) {
+          return { ...obj, quantity: event.value };
+        }
+      });
+      return newState;
+    });
+    setForceUpdate((prev) => !prev);
+  }, []);
 
   return (
     <Select
       defaultValue={selectedOption}
-      onChange={setSelectedOption}
+      onChange={quantityHandler}
       options={options}
     />
   );
