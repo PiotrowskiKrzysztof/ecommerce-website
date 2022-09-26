@@ -4,6 +4,7 @@ import { Typography } from "@components/styles/Typography";
 import Image from "next/image";
 import React, { useState, useEffect, useCallback } from "react";
 import QuantitySelect from "@components/atoms/QauntitySelect";
+import { useAppContext } from "@components/misc/AppWraper";
 
 import * as Styled from "./styles";
 import { CartProductsProps } from "./types";
@@ -13,6 +14,7 @@ const Cart: React.FC = () => {
   const [finallPrice, setFinallPrice] = useState(0);
   const [finallCoutItems, setfinallCoutItems] = useState(0);
   const [forceUpdate, setForceUpdate] = useState(false);
+  const cartContext = useAppContext();
   useEffect(() => {
     const chosenProducts = [];
     let counterPrice = 0;
@@ -43,8 +45,20 @@ const Cart: React.FC = () => {
     setProducts(chosenProducts);
   }, [forceUpdate]);
 
-  const counterItems = 25;
-  // const finallPrice = 926;
+  const deleteProduct = useCallback(
+    (id: string) => {
+      localStorage.removeItem(id);
+      cartContext.decrementFunction();
+      setProducts((current) =>
+        current.filter((product) => {
+          return product.id !== id;
+        })
+      );
+      setForceUpdate((prev) => !prev);
+    },
+    [products]
+  );
+
   return (
     <Styled.Container>
       <Inner variant="default">
@@ -97,7 +111,11 @@ const Cart: React.FC = () => {
                   </Styled.ItemData>
                   <Styled.ItemData isLast={true}>
                     <Typography fontWeight="bold">
-                      <Styled.ActionButton>X</Styled.ActionButton>
+                      <Styled.ActionButton
+                        onClick={() => deleteProduct(product?.id)}
+                      >
+                        X
+                      </Styled.ActionButton>
                     </Typography>
                   </Styled.ItemData>
                 </Styled.ItemContainer>

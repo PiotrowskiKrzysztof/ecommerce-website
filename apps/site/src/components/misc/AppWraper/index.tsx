@@ -10,6 +10,9 @@ const AppContext = createContext({
   productCounter: 0,
   counterFunction: function () {
     this.productCounter++;
+  },
+  decrementFunction: function () {
+    this.productCounter--;
   }
 });
 
@@ -35,6 +38,9 @@ export const AppWraper: React.FC<PropsWithChildren<unknown>> = ({
     productCounter: productCounter,
     counterFunction: function () {
       setProductCounter(productCounter + 1);
+    },
+    decrementFunction: function () {
+      setProductCounter(productCounter - 1);
     }
   };
   return (
