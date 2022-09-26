@@ -69,14 +69,16 @@ const Cart: React.FC = () => {
               </Styled.ItemData>
             </Styled.ItemContainer>
             {products instanceof Array &&
-              products?.map((product) => (
+              products.map((product) => (
                 <Styled.ItemContainer key={product?.id}>
                   <Styled.ItemData>
-                    <Image
-                      src={product?.image}
-                      width={100}
-                      height={100}
-                    />
+                    {product?.image && (
+                      <Image
+                        src={product?.image}
+                        width={100}
+                        height={100}
+                      />
+                    )}
                   </Styled.ItemData>
                   <Styled.ItemData isWide={true}>
                     <Typography fontWeight="bold">
@@ -104,6 +106,17 @@ const Cart: React.FC = () => {
           <StyledBox flexBasis="30%">
             <Styled.CartSummary>
               <Typography variant="h5">{`Subtotal (${finallCoutItems} items):`}</Typography>
+              {products instanceof Array &&
+                products.map((product) => (
+                  <StyledBox justifyContent="space-between">
+                    <Typography variant="paragraph">{`${product?.name}`}</Typography>
+                    <Typography variant="paragraph">{`x${
+                      product?.quantity
+                    } (${(product?.quantity * product?.price).toFixed(
+                      2
+                    )}$)`}</Typography>
+                  </StyledBox>
+                ))}
               <Typography variant="h6">{`$ ${finallPrice}`}</Typography>
               <Styled.ShopButton type="button">
                 Checkout
