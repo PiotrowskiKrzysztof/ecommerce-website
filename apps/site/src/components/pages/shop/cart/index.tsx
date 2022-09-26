@@ -108,7 +108,10 @@ const Cart: React.FC = () => {
               <Typography variant="h5">{`Subtotal (${finallCoutItems} items):`}</Typography>
               {products instanceof Array &&
                 products.map((product) => (
-                  <StyledBox justifyContent="space-between">
+                  <StyledBox
+                    key={product?.id}
+                    justifyContent="space-between"
+                  >
                     <Typography variant="paragraph">{`${product?.name}`}</Typography>
                     <Typography variant="paragraph">{`x${
                       product?.quantity

@@ -16,18 +16,6 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({
     value: Number(quantity),
     label: String(quantity)
   });
-  useEffect(() => {
-    localStorage.setItem(
-      id,
-      JSON.stringify({
-        id: id,
-        name: name,
-        image: image,
-        price: price,
-        quantity: selectedOption?.value
-      })
-    );
-  }, [selectedOption]);
 
   const quantityHandler = useCallback((event) => {
     setSelectedOption({
@@ -42,6 +30,16 @@ const QuantitySelect: React.FC<QuantitySelectProps> = ({
       });
       return newState;
     });
+    localStorage.setItem(
+      id,
+      JSON.stringify({
+        id: id,
+        name: name,
+        image: image,
+        price: price,
+        quantity: event.value
+      })
+    );
     setForceUpdate((prev) => !prev);
   }, []);
 
