@@ -8,6 +8,7 @@ import { useAppContext } from "@components/misc/AppWraper";
 
 import * as Styled from "./styles";
 import { CartProductsProps } from "./types";
+import Link from "@components/atoms/Link";
 
 const Cart: React.FC = () => {
   const [products, setProducts] = useState<CartProductsProps>();
@@ -87,18 +88,24 @@ const Cart: React.FC = () => {
                 <Styled.ItemContainer key={product?.id}>
                   <Styled.ItemData>
                     {product?.image && (
-                      <Image
-                        src={product?.image}
-                        width={100}
-                        height={100}
-                      />
+                      <Link href={`/shop/product/${product?.id}`}>
+                        <Image
+                          src={product?.image}
+                          width={100}
+                          height={100}
+                        />
+                      </Link>
                     )}
                   </Styled.ItemData>
+
                   <Styled.ItemData isWide={true}>
-                    <Typography fontWeight="bold">
-                      {product?.name}
-                    </Typography>
+                    <Link href={`/shop/product/${product?.id}`}>
+                      <Typography fontWeight="bold">
+                        {product?.name}
+                      </Typography>
+                    </Link>
                   </Styled.ItemData>
+
                   <Styled.ItemData>
                     <QuantitySelect
                       {...product}
