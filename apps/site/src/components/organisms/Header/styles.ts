@@ -1,4 +1,5 @@
-import { ShoppingCart } from "public/assets/svg";
+import { Typography } from "@components/styles/Typography";
+import { ShoppingCart, User } from "public/assets/svg";
 import styled from "styled-components";
 
 import { StyledHeaderProps } from "./types";
@@ -44,4 +45,20 @@ export const ProductCounter = styled.p`
   background-color: ${({ theme }) => theme.colors.DarkBlue};
   border: 0.063rem solid ${({ theme }) => theme.colors.Yellow};
   border-radius: 50%;
+`;
+
+export const Sign = styled(Typography)`
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    color: ${({ theme }) => theme.colors.Yellow};
+  }
+`;
+
+export const UserIcon = styled(User)`
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.Yellow};
 `;

@@ -49,14 +49,21 @@ const Header: React.FC<HeaderProps> = ({ items }) => {
             </ul>
             {session ? (
               <>
-                Signed in as {session?.user?.email} <br />
-                <button onClick={() => signOut()}>Sign out</button>
+                <Styled.Sign
+                  onClick={() => signOut()}
+                  variant="smallText"
+                >
+                  Sign out
+                </Styled.Sign>
+                <Styled.UserIcon />
               </>
             ) : (
-              <>
-                Not signed in <br />
-                <button onClick={() => signIn()}>Sign in</button>
-              </>
+              <Styled.Sign
+                variant="smallText"
+                onClick={() => signIn()}
+              >
+                Sign in
+              </Styled.Sign>
             )}
             <Link href="/shop/cart">
               <Styled.ShoppingCartIconContainer>

@@ -1,4 +1,1 @@
-export const navigation = [
-  { label: "Sign in", href: "/signin" },
-  { label: "Orders", href: "/orders" }
-];
+export const navigation = [{ label: "Orders", href: "/orders" }];

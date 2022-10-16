@@ -5,6 +5,7 @@ import Play from "./icons/IconPlay.svg";
 import ArrowShort from "./icons/IconArrowShort.svg";
 import ArrowLong from "./icons/IconArrowLong.svg";
 import ShoppingCart from "./icons/ShoppingCart.svg";
+import User from "./icons/userProfile.svg";
 
 export {
   Twitter,
@@ -13,5 +14,6 @@ export {
   Play,
   ArrowShort,
   ArrowLong,
-  ShoppingCart
+  ShoppingCart,
+  User
 };
