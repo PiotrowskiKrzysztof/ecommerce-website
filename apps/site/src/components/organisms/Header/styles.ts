@@ -62,3 +62,40 @@ export const UserIcon = styled(User)`
   cursor: pointer;
   stroke: ${({ theme }) => theme.colors.Yellow};
 `;
+
+export const DropdownMenu = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  top: 2.5rem;
+  right: 0;
+  padding: 0.5rem;
+  min-width: 10rem;
+  background-color: white;
+  border: 0.063rem solid ${({ theme }) => theme.colors.DarkBlue};
+`;
+
+export const DropdownMenuItem = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  color: ${({ theme }) => theme.colors.DarkBlue};
+  transition: 0.5s;
+  cursor: pointer;
+  &:not(:last-child) {
+    border-bottom: 0.063rem solid
+      ${({ theme }) => theme.colors.DarkBlue};
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.LightGrey2};
+    color: ${({ theme }) => theme.colors.Yellow};
+  }
+`;
+
+export const DropdownMenuContainer = styled.div`
+  margin-left: 2rem;
+  position: relative;
+`;

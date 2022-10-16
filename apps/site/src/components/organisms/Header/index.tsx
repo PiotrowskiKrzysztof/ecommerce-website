@@ -4,7 +4,7 @@ import { Typography } from "@components/styles/Typography";
 import NextLink from "next/link";
 import Link from "@components/atoms/Link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { useAppContext } from "@components/misc/AppWraper";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -15,6 +15,7 @@ const Header: React.FC<HeaderProps> = ({ items }) => {
   const { asPath } = useRouter();
   const cartContext = useAppContext();
   const { data: session } = useSession();
+  const [isDropdownMenu, setIsDropdownMenu] = useState(false);
 
   return (
     <Styled.Wrapper>
@@ -48,15 +49,23 @@ const Header: React.FC<HeaderProps> = ({ items }) => {
               })}
             </ul>
             {session ? (
-              <>
-                <Styled.Sign
-                  onClick={() => signOut()}
-                  variant="smallText"
-                >
-                  Sign out
-                </Styled.Sign>
+              <Styled.DropdownMenuContainer
+                onClick={() => setIsDropdownMenu(!isDropdownMenu)}
+              >
                 <Styled.UserIcon />
-              </>
+                {isDropdownMenu && (
+                  <Styled.DropdownMenu>
+                    <Styled.DropdownMenuItem
+                      onClick={() => signOut()}
+                    >
+                      <p>Sign out</p>
+                    </Styled.DropdownMenuItem>
+                    <Styled.DropdownMenuItem>
+                      <p>Tmp Button</p>
+                    </Styled.DropdownMenuItem>
+                  </Styled.DropdownMenu>
+                )}
+              </Styled.DropdownMenuContainer>
             ) : (
               <Styled.Sign
                 variant="smallText"
